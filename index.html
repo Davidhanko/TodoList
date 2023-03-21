@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
+</head>
+<body>
+<div class="content">
+    <h1>Todo list</h1>
+    <div id="popupForm">
+        <form>
+            <input type="text" id="formTitle" placeholder="Enter Title">
+            <input type="text" id="formDescription" placeholder="Enter Description">
+            <input type="text" id="formDueDate" placeholder="Enter DueDate">
+            <input type="text" id="formPriority" placeholder="Enter Priority">
+            <input type="text" id="formNotes" placeholder="Enter Note">
+            <input type="text" id="formArray" placeholder="Enter Array">
+            <input type="submit" id="formSubmit" onsubmit="TodoObjectController(event)">
+        </form>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -17,8 +17,13 @@ function createArray(name) {
   return array;
 }
 
-function addTodoFileToArray(todoFile, array) {
-  array.push(todoFile);
+function addTodoFileToArray(todoFile) {
+  switch (todoFile.ownArray) {
+    case "Default": {
+      Default.push(todoFile);
+      break;
+    }
+  }
 }
 
 function getTodoParameters() {
@@ -26,10 +31,9 @@ function getTodoParameters() {
   let description = document.getElementById("formDescription").value;
   let dueDate = document.getElementById("formDueDate").value;
   let priority = document.getElementById("formPriority").value;
-  let checklist = document.getElementById("formChecklist").value;
   let notes = document.getElementById("formNotes").value;
   let array = document.getElementById("formArray").value;
-  return [title, description, dueDate, priority, checklist, notes, array];
+  return [title, description, dueDate, priority, notes, array];
 }
 
 function createTodoFileFromParameters() {
@@ -40,16 +44,36 @@ function createTodoFileFromParameters() {
     parameters[2],
     parameters[3],
     "false",
-    parameters[5],
-    parameters[6]
+    parameters[4],
+    parameters[5]
   );
 }
 
-function TodoObjectController(event) {
-  event.preventDefault();
+function TodoObjectController() {
   let todoFile = createTodoFileFromParameters();
   addTodoFileToArray(todoFile, todoFile.ownArray);
-  console.log(todoFile.ownArray);
+  createHTMLForTodo(todoFile);
 }
 
 let Default = createArray("Default");
+function createHTMLForTodo(todoFile) {
+  let title = document.createElement("h1");
+  let description = document.createElement("p");
+  let dueDate = document.createElement("p");
+  let priority = document.createElement("p");
+  let checklist = document.createElement("p");
+  let notes = document.createElement("p");
+  let listing = document.getElementById("listing");
+  title.innerText = `Title:  ${todoFile.title}`;
+  description.innerText = "Description: " + todoFile.description;
+  dueDate.innerText = "Due Date: " + todoFile.dueDate;
+  priority.innerText = "Priority: " + todoFile.priority;
+  checklist.innerText = "Checklist: " + todoFile.checklist;
+  notes.innerText = "Notes: " + todoFile.notes;
+  listing.appendChild(title);
+  listing.appendChild(description);
+  listing.appendChild(dueDate);
+  listing.appendChild(priority);
+  listing.appendChild(checklist);
+  listing.appendChild(notes);
+}

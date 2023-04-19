@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo list</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="code.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
 <div class="content">
     <h1>Todo list</h1>
-    <div id="popupForm" onsubmit="return false">
-        <form>
+    <div id="popupForm">
+        <form onsubmit="return false">
             <input type="text" id="formTitle" placeholder="Enter Title" required>
             <input type="text" id="formDescription" placeholder="Enter Description" required>
             <input type="text" id="formDueDate" placeholder="Enter DueDate" required>
             <input type="text" id="formPriority" placeholder="Enter Priority" required>
             <input type="text" id="formNotes" placeholder="Enter Note" required>
             <input type="text" id="formArray" placeholder="Enter Array">
-            <button type="submit" value="Submit" id="formSubmit" onclick="TodoObjectController()">Submit</button>
+            <button type="submit" value="Submit" id="formSubmit">Submit</button>
         </form>
+    </div>
+    <div>
+        <button id="showForm">Show form</button>
     </div>
         <div id="listing"></div>
 </div>

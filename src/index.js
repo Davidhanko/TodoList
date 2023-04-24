@@ -2,7 +2,10 @@ import "./style.css";
 import { togglePopup } from "./form";
 import { default as classCreator } from "./objectCreator";
 import { BTNForm, BTNPopup } from "./Element";
-import { getArrayFromLocalStorage } from "./localLoading";
+import {
+  getArrayFromLocalStorage,
+  getCategoryFromLocalStorage,
+} from "./localLoading";
 
 BTNForm.addEventListener("click", () => {
   classCreator();
@@ -14,5 +17,6 @@ BTNPopup.addEventListener("click", () => {
 });
 
 window.onload = function () {
+  getCategoryFromLocalStorage();
   getArrayFromLocalStorage();
 };
